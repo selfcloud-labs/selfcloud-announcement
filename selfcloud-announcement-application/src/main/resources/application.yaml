@@ -1,0 +1,55 @@
+server:
+  port: 8091
+logging:
+  level:
+    org.springframework.security: debug
+spring:
+
+  application:
+    name: selfcloud-announcement
+  h2:
+    console:
+      enabled: true
+  datasource:
+    username: announcements
+    password: announcements
+    url: jdbc:mysql://localhost:3306/announcements
+    # url: jdbc:mysql://localhost:3306/selfcloud-announcement
+#    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    driver-class-name: org.h2.Driver
+  jpa:
+    defer-datasource-initialization: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    database-platform: org.hibernate.dialect.MySQLDialect
+  servlet:
+    multipart:
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+  flyway:
+    enabled: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:  ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: 'true'
+
+eventuatelocal:
+  kafka:
+    bootstrap:
+      servers: localhost:9092
+  zookeeper:
+    connection:
+      string: localhost:2181
+#eventuate:
+#  transactional:
+#    messaging:
+#      kafka:
+#        replication: 1

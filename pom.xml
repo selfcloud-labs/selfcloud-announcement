@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>pl.selfcloud</groupId>
+		<artifactId>selfcloud-parent</artifactId>
+		<version>1.0.6</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>pl.selfcloud.announcement</groupId>
+	<artifactId>selfcloud-announcement</artifactId>
+	<version>1.0.7</version>
+	<name>selfcloud-announcement</name>
+	<description>selfcloud-announcement-backend</description>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>selfcloud-announcement-application</module>
+		<module>selfcloud-announcement-api</module>
+		<module>selfcloud-announcement-domain</module>
+		<module>selfcloud-announcement-web</module>
+		<module>selfcloud-announcement-infrastructure</module>
+	</modules>
+
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>pl.selfcloud</groupId>
+			<artifactId>selfcloud-common</artifactId>
+			<version>1.0.14</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.sagas</groupId>
+			<artifactId>eventuate-tram-sagas-spring-orchestration-simple-dsl-starter</artifactId>
+			<version>0.23.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-spring-messaging</artifactId>
+			<version>0.34.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-spring-events</artifactId>
+			<version>0.34.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-spring-commands</artifactId>
+			<version>0.34.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-spring-jdbc-kafka</artifactId>
+			<version>0.34.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-spring-optimistic-locking</artifactId>
+			<version>0.34.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.sagas</groupId>
+			<artifactId>eventuate-tram-sagas-spring-participant-starter</artifactId>
+			<version>0.23.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.sagas</groupId>
+			<artifactId>eventuate-tram-sagas-spring-flyway</artifactId>
+			<version>0.23.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-aggregate-domain-events</artifactId>
+			<version>0.34.0.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.eventuate.tram.sagas</groupId>
+			<artifactId>eventuate-tram-sagas-participant</artifactId>
+			<version>0.23.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-spring-flyway</artifactId>
+			<version>0.34.0.RELEASE</version>
+		</dependency>
+	</dependencies>
+
+
+</project>
