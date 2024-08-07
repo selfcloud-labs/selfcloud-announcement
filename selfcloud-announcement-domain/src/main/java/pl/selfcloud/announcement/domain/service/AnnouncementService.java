@@ -43,8 +43,8 @@ import pl.selfcloud.announcement.domain.service.exception.paging.SubcategoryDoes
 import pl.selfcloud.announcement.domain.service.exception.state.AnnouncementIsDisable;
 import pl.selfcloud.announcement.domain.service.exception.state.AnnouncementIsNotEnabledException;
 import pl.selfcloud.announcement.domain.service.exception.state.AnnouncementIsRemoved;
-import pl.selfcloud.announcement.domain.service.mapper.AnnouncementMapper;
-import pl.selfcloud.announcement.domain.service.mapper.ImageMapper;
+import pl.selfcloud.announcement.domain.model.mapper.AnnouncementMapper;
+import pl.selfcloud.announcement.domain.model.mapper.ImageMapper;
 import pl.selfcloud.announcement.domain.service.publisher.AnnouncementDomainEventPublisher;
 import pl.selfcloud.common.model.Category;
 import pl.selfcloud.common.model.State;

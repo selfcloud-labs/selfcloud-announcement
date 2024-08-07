@@ -27,7 +27,7 @@ import pl.selfcloud.announcement.api.detail.CustomerDetails;
 import pl.selfcloud.announcement.api.dto.AnnouncementDto;
 import pl.selfcloud.announcement.api.event.AnnouncementCreatedEvent;
 import pl.selfcloud.announcement.api.event.AnnouncementDomainEvent;
-import pl.selfcloud.announcement.domain.service.mapper.AnnouncementMapper;
+import pl.selfcloud.announcement.domain.model.mapper.AnnouncementMapper;
 
 @Builder
 @NoArgsConstructor

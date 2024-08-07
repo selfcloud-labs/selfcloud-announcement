@@ -1,4 +1,4 @@
-package pl.selfcloud.announcement.domain.service.mapper;
+package pl.selfcloud.announcement.domain.model.mapper;
 
 import java.io.IOException;
 import java.util.ArrayList;

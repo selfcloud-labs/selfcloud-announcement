@@ -1,4 +1,4 @@
-package pl.selfcloud.announcement.domain.service.mapper;
+package pl.selfcloud.announcement.domain.model.mapper;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
