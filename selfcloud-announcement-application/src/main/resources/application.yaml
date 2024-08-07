@@ -2,22 +2,26 @@ server:
   port: 8091
 logging:
   level:
+    root: INFO
+    com.zaxxer.hikari: DEBUG
+    org.springframework.jdbc.core: DEBUG
+    org.springframework.transaction: TRACE
+    org.hibernate: DEBUG
+    com.mysql.cj: DEBUG
     org.springframework.security: debug
 spring:
-
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
   application:
     name: selfcloud-announcement
   h2:
     console:
       enabled: true
   datasource:
-    username: announcements
-    password: announcements
-    url: jdbc:mysql://localhost:3306/announcements
-    # url: jdbc:mysql://localhost:3306/selfcloud-announcement
-#    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    username: ${ANNOUNCEMENTS_DB_USERNAME:announcements}
+    password: ${ANNOUNCEMENTS_DB_PASSWORD:announcements}
+    url: jdbc:mysql://${ANNOUNCEMENTS_HOST_IP:localhost}:3306/announcements
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    driver-class-name: org.h2.Driver
   jpa:
     defer-datasource-initialization: false
     hibernate:
@@ -36,20 +40,17 @@ spring:
     enabled: true
 eureka:
   client:
+    enabled: ${EUREKA_CLIENT_ENABLED:false}
+
     serviceUrl:
-      defaultZone:  ${EUREKA_URL:http://localhost:8761/eureka}
+      defaultZone:  http://${EUREKA_HOST:localhost}:8761/eureka
   instance:
     prefer-ip-address: 'true'
 
 eventuatelocal:
   kafka:
     bootstrap:
-      servers: localhost:9092
+      servers: ${KAFKA_HOST:localhost}:9092
   zookeeper:
     connection:
-      string: localhost:2181
-#eventuate:
-#  transactional:
-#    messaging:
-#      kafka:
-#        replication: 1
+      string: ${ZOOKEEPER_HOST:localhost}:2181

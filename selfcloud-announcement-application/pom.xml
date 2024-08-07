@@ -5,7 +5,7 @@
   <parent>
     <groupId>pl.selfcloud.announcement</groupId>
     <artifactId>selfcloud-announcement</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
   </parent>
   <groupId>pl.selfcloud.announcement</groupId>
   <artifactId>selfcloud-announcement-application</artifactId>
@@ -15,12 +15,12 @@
     <dependency>
       <groupId>pl.selfcloud.announcement</groupId>
       <artifactId>selfcloud-announcement-domain</artifactId>
-      <version>1.0.7</version>
+      <version>1.0.8</version>
     </dependency>
     <dependency>
       <groupId>pl.selfcloud.announcement</groupId>
       <artifactId>selfcloud-announcement-infrastructure</artifactId>
-      <version>1.0.7</version>
+      <version>1.0.8</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -29,12 +29,12 @@
     <dependency>
       <groupId>pl.selfcloud.announcement</groupId>
       <artifactId>selfcloud-announcement-web</artifactId>
-      <version>1.0.7</version>
+      <version>1.0.8</version>
     </dependency>
     <dependency>
       <groupId>pl.selfcloud.announcement</groupId>
       <artifactId>selfcloud-announcement-api</artifactId>
-      <version>1.0.7</version>
+      <version>1.0.8</version>
     </dependency>
   </dependencies>
   <build>

@@ -1,5 +1,4 @@
 FROM eclipse-temurin:17-jre-alpine
-MAINTAINER selfcloud.pl
-COPY target/selfcloud-announcement-1.0.5.jar selfcloud-announcement-1.0.5.jar
+COPY selfcloud-announcement-application/target/selfcloud-announcement-application-1.0.8.jar selfcloud-announcement-1.0.8.jar
 EXPOSE 8091
-ENTRYPOINT ["java","-jar","/selfcloud-announcement-1.0.5.jar"]
+ENTRYPOINT ["java","-jar","/selfcloud-announcement-1.0.8.jar"]

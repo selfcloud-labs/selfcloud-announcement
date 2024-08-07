@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>pl.selfcloud.announcement</groupId>
 	<artifactId>selfcloud-announcement</artifactId>
-	<version>1.0.7</version>
+	<version>1.0.8</version>
 	<name>selfcloud-announcement</name>
 	<description>selfcloud-announcement-backend</description>
 	<packaging>pom</packaging>
