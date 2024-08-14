@@ -7,18 +7,18 @@
     <artifactId>selfcloud-announcement</artifactId>
     <version>1.0.8</version>
   </parent>
-  <groupId>pl.selfcloud.announcement</groupId>
+  <groupId>pl.selfcloud.announcement.application</groupId>
   <artifactId>selfcloud-announcement-application</artifactId>
   <name>selfcloud-announcement-application</name>
 
   <dependencies>
     <dependency>
-      <groupId>pl.selfcloud.announcement</groupId>
+      <groupId>pl.selfcloud.announcement.domain</groupId>
       <artifactId>selfcloud-announcement-domain</artifactId>
       <version>1.0.8</version>
     </dependency>
     <dependency>
-      <groupId>pl.selfcloud.announcement</groupId>
+      <groupId>pl.selfcloud.announcement.infrastructure</groupId>
       <artifactId>selfcloud-announcement-infrastructure</artifactId>
       <version>1.0.8</version>
     </dependency>
@@ -27,13 +27,18 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
-      <groupId>pl.selfcloud.announcement</groupId>
+      <groupId>pl.selfcloud.announcement.web</groupId>
       <artifactId>selfcloud-announcement-web</artifactId>
       <version>1.0.8</version>
     </dependency>
     <dependency>
-      <groupId>pl.selfcloud.announcement</groupId>
+      <groupId>pl.selfcloud.announcement.api</groupId>
       <artifactId>selfcloud-announcement-api</artifactId>
+      <version>1.0.8</version>
+    </dependency>
+    <dependency>
+      <groupId>pl.selfcloud.announcement.saga</groupId>
+      <artifactId>selfcloud-announcement-saga</artifactId>
       <version>1.0.8</version>
     </dependency>
   </dependencies>

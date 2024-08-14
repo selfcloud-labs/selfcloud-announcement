@@ -14,8 +14,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
-import pl.selfcloud.announcement.api.detail.CustomerDetails;
 import pl.selfcloud.announcement.infrastructure.security.util.Utilities;
+import pl.selfcloud.security.api.detail.CustomerDetails;
 
 public class JWTVerifierFilter extends OncePerRequestFilter {
 

@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.selfcloud.announcement.api.common.OrderBy;
 import pl.selfcloud.announcement.api.common.PageSize;
 import pl.selfcloud.announcement.api.dto.AnnouncementDto;
+import pl.selfcloud.announcement.domain.service.AnnouncementManagementService;
 import pl.selfcloud.announcement.domain.service.AnnouncementService;
 import pl.selfcloud.announcement.domain.service.exception.AnnouncementNotFoundException;
 import pl.selfcloud.announcement.domain.service.exception.DomainException;
@@ -39,10 +40,13 @@ import pl.selfcloud.common.model.Subcategory;
 public class AnnouncementController {
 
   private final AnnouncementService announcementService;
+  private final AnnouncementManagementService announcementManagementService;
 
   @Autowired
-  public AnnouncementController(AnnouncementService announcementService) {
+  public AnnouncementController(AnnouncementService announcementService,
+      AnnouncementManagementService announcementManagementService) {
     this.announcementService = announcementService;
+    this.announcementManagementService = announcementManagementService;
   }
 
   @Secured("READ_ANNOUNCEMENT")
@@ -120,7 +124,7 @@ public class AnnouncementController {
   public ResponseEntity<AnnouncementDto> createAnnouncement(@RequestBody final AnnouncementDto announcement) {
 
     return new ResponseEntity<>(
-        announcementService.create(announcement),
+        announcementManagementService.create(announcement),
         HttpStatus.CREATED);
   }
 
@@ -129,13 +133,13 @@ public class AnnouncementController {
   @PutMapping("/{id}")
   public ResponseEntity<AnnouncementDto> updateOrder(@PathVariable final long id, @RequestBody final AnnouncementDto announcement){
     return new ResponseEntity<>(
-        announcementService.update(id, announcement),
+        announcementManagementService.update(id, announcement),
         HttpStatus.OK);
   }
   @Secured("DELETE_ANNOUNCEMENT")
   @DeleteMapping("/{id}")
   public ResponseEntity<String> deleteAnnouncement(@PathVariable final long id){
-    announcementService.delete(id);
+    announcementManagementService.delete(id);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 

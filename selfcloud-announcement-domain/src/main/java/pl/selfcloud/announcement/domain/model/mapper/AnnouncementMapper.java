@@ -2,13 +2,13 @@ package pl.selfcloud.announcement.domain.model.mapper;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
-import pl.selfcloud.announcement.api.detail.AnnouncementDetails;
-import pl.selfcloud.announcement.api.detail.CustomerDetails;
+import pl.selfcloud.announcement.domain.model.detail.AnnouncementDetails;
 import pl.selfcloud.announcement.api.dto.AnnouncementDto;
 import pl.selfcloud.announcement.api.dto.AnnouncementWithImagesDto;
+import pl.selfcloud.announcement.api.state.AnnouncementState;
 import pl.selfcloud.announcement.domain.model.Announcement;
 import pl.selfcloud.announcement.domain.service.exception.MissingValueException;
-import pl.selfcloud.common.model.State;
+import pl.selfcloud.security.api.detail.CustomerDetails;
 
 public class AnnouncementMapper {
 
@@ -30,8 +30,8 @@ public class AnnouncementMapper {
             .subcategory(Optional.ofNullable(announcementDto.getSubcategory())
                 .orElseThrow(() -> new MissingValueException("subcategory")))
             .createdAt(LocalDateTime.now())
-            .state(State.ENABLED)
             .build())
+        .state(AnnouncementState.APPROVED)
         .customerDetails(pair)
 
         .build();
@@ -65,7 +65,7 @@ public class AnnouncementMapper {
         .modifiedAt(details.getModifiedAt())
         .category(details.getCategory())
         .subcategory(details.getSubcategory())
-        .state(details.getState())
+        .state(announcement.getState())
         .build();
   }
 
@@ -82,7 +82,7 @@ public class AnnouncementMapper {
         .category(details.getCategory())
         .subCategory(details.getSubcategory())
         .images(ImageMapper.mapToImagesDto(announcement.getImages()))
-        .state(details.getState())
+        .state(announcement.getState())
         .build();
   }
 }

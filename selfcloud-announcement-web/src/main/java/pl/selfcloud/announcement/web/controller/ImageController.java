@@ -27,6 +27,7 @@ import pl.selfcloud.announcement.api.common.OrderBy;
 import pl.selfcloud.announcement.api.common.PageSize;
 import pl.selfcloud.announcement.api.dto.AnnouncementDto;
 import pl.selfcloud.announcement.api.dto.AnnouncementWithImagesDto;
+import pl.selfcloud.announcement.domain.service.AnnouncementImageService;
 import pl.selfcloud.announcement.domain.service.AnnouncementService;
 import pl.selfcloud.announcement.domain.service.exception.image.AddingImageException;
 import pl.selfcloud.common.model.Category;
@@ -37,11 +38,11 @@ import pl.selfcloud.common.model.Subcategory;
 @RequestMapping("/api/v1/announcements")
 public class ImageController {
 
-  private final AnnouncementService announcementService;
+  private final AnnouncementImageService announcementImageService;
 
   @Autowired
-  public ImageController(AnnouncementService announcementService) {
-    this.announcementService = announcementService;
+  public ImageController(AnnouncementImageService announcementImageService) {
+    this.announcementImageService = announcementImageService;
   }
 
   @Secured("READ_ANNOUNCEMENT")
@@ -49,7 +50,7 @@ public class ImageController {
   public @ResponseBody AnnouncementWithImagesDto getImages(
       @PathVariable final long id) throws IOException {
 
-    return announcementService.getAnnouncementWithImagesById(id);
+    return announcementImageService.getAnnouncementWithImagesById(id);
   }
   @Secured("READ_ANNOUNCEMENT")
   @GetMapping("/{id}/images/{imageId}")
@@ -57,7 +58,7 @@ public class ImageController {
       @PathVariable final long id,
       @PathVariable final int imageId) throws IOException{
 
-    return announcementService.getAnnouncementWithImageById(id, imageId);
+    return announcementImageService.getAnnouncementWithImageById(id, imageId);
   }
 
   @Secured("READ_ANNOUNCEMENT")
@@ -65,7 +66,7 @@ public class ImageController {
   public ResponseEntity<Integer> getImagesNumber(@PathVariable final long id){
 
     return new ResponseEntity<>(
-        announcementService.countImages(id),
+        announcementImageService.countImages(id),
         HttpStatus.OK);
   }
 
@@ -76,7 +77,7 @@ public class ImageController {
       @RequestParam("file") List<MultipartFile> files) throws IOException {
 
     return new ResponseEntity<>(
-        announcementService.addFile(id,files),
+        announcementImageService.addFile(id,files),
         HttpStatus.CREATED);
 
   }
@@ -98,21 +99,21 @@ public class ImageController {
   ){
 
     return new ResponseEntity<>(
-        announcementService.getPagedAnnouncementsWithImages(--page, size, category, subcategory, minimalPrice, maximalPrice, created_after, created_before, sortDirection, orderBy),
+        announcementImageService.getPagedAnnouncementsWithImages(--page, size, category, subcategory, minimalPrice, maximalPrice, created_after, created_before, sortDirection, orderBy),
         HttpStatus.OK);
   }
 
   @Secured("DELETE_ANNOUNCEMENT")
   @DeleteMapping("/{id}/images")
   public ResponseEntity<String> deleteImagesOfAnnouncement(@PathVariable final long id){
-    announcementService.deleteImagesOfAnnouncement(id);
+    announcementImageService.deleteImagesOfAnnouncement(id);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   @Secured("DELETE_ANNOUNCEMENT")
   @DeleteMapping("/{id}/images/{imageId}")
   public ResponseEntity<String> deleteImageOfAnnouncement(@PathVariable final long id, @PathVariable final int imageId){
-    announcementService.deleteImageOfAnnouncement(id, imageId);
+    announcementImageService.deleteImageOfAnnouncement(id, imageId);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 

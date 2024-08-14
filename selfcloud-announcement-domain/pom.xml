@@ -7,20 +7,31 @@
     <artifactId>selfcloud-announcement</artifactId>
     <version>1.0.8</version>
   </parent>
-  <groupId>pl.selfcloud.announcement</groupId>
+  <groupId>pl.selfcloud.announcement.domain</groupId>
   <artifactId>selfcloud-announcement-domain</artifactId>
   <name>selfcloud-announcement-domain</name>
 
   <dependencies>
+
     <dependency>
-      <groupId>pl.selfcloud.announcement</groupId>
+      <groupId>pl.selfcloud.common.eventuate.event</groupId>
+      <artifactId>selfcloud-common-eventuate-event</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>pl.selfcloud.announcement.api</groupId>
       <artifactId>selfcloud-announcement-api</artifactId>
       <version>1.0.8</version>
-      <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
+      <groupId>pl.selfcloud.security</groupId>
+      <artifactId>selfcloud-security-api</artifactId>
+      <version>1.0.5</version>
     </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>2.17.2</version>
+    </dependency>
+
   </dependencies>
 </project>

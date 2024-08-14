@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "IMAGES")
+@Table(name = "images")
 public class Image implements Serializable {
 
   @Id

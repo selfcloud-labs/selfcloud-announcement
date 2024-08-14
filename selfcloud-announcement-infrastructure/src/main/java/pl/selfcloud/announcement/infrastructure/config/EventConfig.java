@@ -8,7 +8,7 @@ import io.eventuate.tram.spring.optimisticlocking.OptimisticLockingDecoratorConf
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import pl.selfcloud.announcement.domain.service.publisher.AnnouncementDomainEventPublisher;
+
 
 @Configuration
 @Import({
@@ -19,9 +19,6 @@ import pl.selfcloud.announcement.domain.service.publisher.AnnouncementDomainEven
     TramMessageProducerJdbcConfiguration.class})
 public class EventConfig {
 
-  @Bean
-  public AnnouncementDomainEventPublisher orderAggregateEventPublisher(DomainEventPublisher eventPublisher) {
-    return new AnnouncementDomainEventPublisher(eventPublisher);
-  }
+
 }
 
