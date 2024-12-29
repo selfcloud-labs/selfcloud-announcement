@@ -1,4 +1,8 @@
 # selfcloud-announcement
+Allows users to create, manage, and display announcements. It also manages the visibility and categorization of announcements across the platform.
+
+A user can publish an announcement offering their services (e.g., creating a video).
+Other users can purchase this service through our platform.
 
 The announcement is one of the basic domain entity which is used in Selflcoud environment.
 
