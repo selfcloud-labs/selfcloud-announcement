@@ -109,6 +109,42 @@ public class AnnouncementService {
     }
   }
 
+  public Collection<AnnouncementDto> getPagedAnnouncementsWithImages(
+      final int pageNumber, final PageSize size,
+      final Category category, final Subcategory subcategory,
+      final Double minimalPrice, final Double maximalPrice,
+      final LocalDateTime created_after, final LocalDateTime created_before,
+      final Direction direction, final OrderBy orderBy) {
+
+    isDateValid(created_after, created_before);
+
+    Sort sort = Sort.by(direction, orderBy.getValue());
+    Pageable page = PageRequest.of(pageNumber, size.getSize(), sort);
+
+    if (category == null) {
+
+      arePagingConditionForEmptyCategoryValid(subcategory, orderBy);
+
+      return mapToAnnouncementsDto(
+          announcementRepository.findAnnouncementsWithImages(AnnouncementState.APPROVED, minimalPrice, maximalPrice, created_after, created_before, page)
+      );
+    }else {
+
+      if (subcategory == null){
+        return mapToAnnouncementsDto(
+            announcementRepository.findAnnouncementsWithImages(
+                AnnouncementState.APPROVED, category, minimalPrice, maximalPrice, created_after, created_before, page)
+        );
+      }else {
+        isSubcategoryValidForCategory(category, subcategory);
+        return mapToAnnouncementsDto(
+            announcementRepository.findAnnouncementsWithImages(
+                AnnouncementState.APPROVED, category, subcategory, minimalPrice, maximalPrice, created_after, created_before, page)
+        );
+      }
+    }
+  }
+
 
   @Cacheable(cacheNames = "getCategoriesAnnouncementsCount")
   public Map<Category, Long> getCategoriesAnnouncementsCount() {

@@ -25,7 +25,6 @@ public class SecurityConfig {
 
     http.authorizeHttpRequests(auth -> auth
             .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
-            .requestMatchers("/orders/**").authenticated()
             .requestMatchers("/announcements/**").authenticated()
             .anyRequest().authenticated()
         )

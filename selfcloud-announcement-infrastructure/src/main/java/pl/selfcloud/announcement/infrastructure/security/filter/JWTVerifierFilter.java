@@ -40,8 +40,6 @@ public class JWTVerifierFilter extends OncePerRequestFilter {
     Authentication authentication = new UsernamePasswordAuthenticationToken(userData, null, simpleGrantedAuthorities);
     SecurityContextHolder.getContext().setAuthentication(authentication);
 
-    logger.info("User " + username + " with ID " + userId + " has logged with authorities: " + simpleGrantedAuthorities);
-
     filterChain.doFilter(httpServletRequest, httpServletResponse);
   }
 

@@ -102,7 +102,7 @@ public class ImageController {
         announcementImageService.getPagedAnnouncementsWithImages(--page, size, category, subcategory, minimalPrice, maximalPrice, created_after, created_before, sortDirection, orderBy),
         HttpStatus.OK);
   }
-
+        
   @Secured("DELETE_ANNOUNCEMENT")
   @DeleteMapping("/{id}/images")
   public ResponseEntity<String> deleteImagesOfAnnouncement(@PathVariable final long id){
@@ -110,13 +110,13 @@ public class ImageController {
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
-  @Secured("DELETE_ANNOUNCEMENT")
+  @Secured("DELETE_ANNOUNCEMENT")                                                                                    
   @DeleteMapping("/{id}/images/{imageId}")
   public ResponseEntity<String> deleteImageOfAnnouncement(@PathVariable final long id, @PathVariable final int imageId){
     announcementImageService.deleteImageOfAnnouncement(id, imageId);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
-
+                                                                     
   @ExceptionHandler(AddingImageException.class)
   @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
   public ResponseEntity<String> handleAddingImageException(AddingImageException exception) {
